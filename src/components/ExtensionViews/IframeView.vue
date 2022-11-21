@@ -1,6 +1,9 @@
 <template>
-  <node-view-wrapper as="div" class="iframe">
-    <iframe class="iframe__embed" :src="node!.attrs.src"></iframe>
+  <node-view-wrapper as="div" class="apex-video">
+    <video controls style='width:100%;' >
+      <source :src="node!.attrs.src">
+    </video>
+
   </node-view-wrapper>
 </template>
 

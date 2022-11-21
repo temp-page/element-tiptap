@@ -23,6 +23,7 @@ export { default as Color } from './color';
 export { default as Highlight } from './highlight';
 export { default as FontFamily } from './font-family';
 export { default as FontSize } from './font-size';
+export { default as Button } from './button';
 export { default as Code } from '@tiptap/extension-code';
 
 // extensions
@@ -37,3 +38,4 @@ export { default as Fullscreen } from './fullscreen';
 export { default as Print } from './print';
 export { default as SelectAll } from './select-all';
 export { default as CodeView } from './code-view';
+

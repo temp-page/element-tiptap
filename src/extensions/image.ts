@@ -23,32 +23,6 @@ const Image = TiptapImage.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
-      width: {
-        default: DEFAULT_IMAGE_WIDTH,
-        parseHTML: (element) => {
-          const width =
-            element.style.width || element.getAttribute('width') || null;
-          return width == null ? null : parseInt(width, 10);
-        },
-        renderHTML: (attributes) => {
-          return {
-            width: attributes.width,
-          };
-        },
-      },
-      height: {
-        default: null,
-        parseHTML: (element) => {
-          const height =
-            element.style.height || element.getAttribute('height') || null;
-          return height == null ? null : parseInt(height, 10);
-        },
-        renderHTML: (attributes) => {
-          return {
-            height: attributes.height,
-          };
-        },
-      },
       display: {
         default: DEFAULT_IMAGE_DISPLAY,
         parseHTML: (element) => {
@@ -74,7 +48,7 @@ const Image = TiptapImage.extend({
         },
         renderHTML: (attributes) => {
           return {
-            ['data-display']: attributes.display,
+            'data-display': attributes.display,
           };
         },
       },
@@ -97,11 +71,6 @@ const Image = TiptapImage.extend({
       },
     };
   },
-
-  addNodeView() {
-    return VueNodeViewRenderer(ImageView);
-  },
-
   parseHTML() {
     return [
       {

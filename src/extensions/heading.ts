@@ -15,6 +15,8 @@ const Heading = TiptapHeading.extend({
         extension: Extension;
         t: (...args: any[]) => string;
       }) {
+        console.log('Heading==========', extension.options);
+
         return {
           component: HeadingDropdown,
           componentProps: {

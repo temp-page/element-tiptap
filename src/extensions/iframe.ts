@@ -34,14 +34,14 @@ const Iframe = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'iframe',
+        tag: 'video',
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
     return [
-      'iframe',
+      'video',
       mergeAttributes(HTMLAttributes, {
         frameborder: 0,
         allowfullscreen: 'true',
@@ -53,12 +53,12 @@ const Iframe = Node.create({
     return {
       setIframe:
         (options) =>
-        ({ commands }) => {
-          return commands.insertContent({
-            type: this.name,
-            attrs: options,
-          });
-        },
+          ({ commands }) => {
+            return commands.insertContent({
+              type: this.name,
+              attrs: options,
+            });
+          },
     };
   },
 

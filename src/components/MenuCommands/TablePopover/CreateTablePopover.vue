@@ -48,9 +48,10 @@
 import { defineComponent, inject, ref, unref } from 'vue';
 import { ElPopover } from 'element-plus';
 
-const INIT_GRID_SIZE = 5;
-const MAX_GRID_SIZE = 10;
-const DEFAULT_SELECTED_GRID_SIZE = 2;
+const INIT_GRID_SIZE = 4;
+const MAX_GRID_SIZE = 1000;
+const MAX_COL_SIZE = 4;
+const DEFAULT_SELECTED_GRID_SIZE = 4;
 
 interface GridSize {
   row: number;
@@ -99,7 +100,7 @@ export default defineComponent({
       }
 
       if (col === this.tableGridSize.col) {
-        this.tableGridSize.col = Math.min(col + 1, MAX_GRID_SIZE);
+        this.tableGridSize.col = Math.min(col + 1, MAX_COL_SIZE);
       }
 
       this.selectedTableGridSize.row = row;
