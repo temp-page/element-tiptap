@@ -9,7 +9,7 @@
     <div class="el-tiptap-popper__menu">
       <div class="el-tiptap-popper__menu__item" @click="openInsertVideoControl">
         <span>{{
-            t('editor.extensions.Image.buttons.insert_image.external')
+            "插入一个视频链接"
           }}</span>
       </div>
       <div
@@ -17,7 +17,7 @@
         @click="imageUploadDialogVisible = true"
       >
         <span>{{
-            t('editor.extensions.Image.buttons.insert_image.upload')
+            "上传一个视频文件"
           }}</span>
       </div>
     </div>
@@ -36,7 +36,7 @@
 
   <el-dialog
     v-model="imageUploadDialogVisible"
-    :title="t('editor.extensions.Image.control.upload_image.title')"
+    :title="'上传视频'"
     :append-to-body="true"
   >
     <el-upload
@@ -45,13 +45,13 @@
       class="el-tiptap-upload"
       action="#"
       drag
-      accept="image/*"
+      accept="video/*"
     >
       <div class="el-tiptap-upload__icon">
         <i class="fa fa-upload" />
       </div>
       <div class="el-tiptap-upload__text">
-        {{ t('editor.extensions.Image.control.upload_image.button') }}
+        {{ "选择一个视频文件或将其拖到此处" }}
       </div>
     </el-upload>
   </el-dialog>
@@ -132,7 +132,7 @@ export default defineComponent({
         const url = await (uploadRequest
           ? uploadRequest(file)
           : readFileDataUrl(file));
-        this.editor.commands.setImage({ src: url });
+        this.editor.commands.setIframe({ src: url });
         this.imageUploadDialogVisible = false;
       } catch (e) {
         Logger.error(String(e));

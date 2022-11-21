@@ -43,7 +43,22 @@ jobs:
           cat package.json | jq --arg tag ${GIT_TAG}  'setpath(["version"];$tag)' > "package.json.bak"
           mv package.json.bak package.json
 
-          rm -rf !(.git|lib|package.json|LICENSE|*.sh)
+
+          rm -rf CHANGELOG.md
+          rm -rf CONTRIBUTING.md
+          rm -rf README.md
+          rm -rf README_ZH.md
+          rm -rf babel.config.js
+          rm -rf demos
+          rm -rf index.html
+          rm -rf node_modules
+          rm -rf postcss.config.js
+          rm -rf public
+          rm -rf src
+          rm -rf tsconfig.json
+          rm -rf vite.config.ts
+          rm -rf yarn.lock
+
           git add lib
           git add package.json
           git commit -m "${GIT_COMMIT_MESSAGE}"

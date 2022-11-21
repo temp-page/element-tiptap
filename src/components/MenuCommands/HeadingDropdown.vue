@@ -1,28 +1,28 @@
 <template>
-  <el-dropdown
-    placement="bottom"
-    trigger="click"
-    popper-class="el-tiptap-dropdown-popper"
-    @command="toggleHeading"
-  >
-    <command-button
-      :enable-tooltip="enableTooltip"
-      :is-active="editor.isActive('heading')"
-      :tooltip="t('editor.extensions.Heading.tooltip')"
-      :disabled="isCodeViewMode"
-      icon="heading"
-    />
+  <el-dropdown placement='bottom'
+               trigger='click'
+               popper-class="el-tiptap-dropdown-popper"
+               @command='toggleHeading'>
+        <span class='el-dropdown-link'>
+          <command-button
+            :enable-tooltip='enableTooltip'
+            :is-active="editor.isActive('heading')"
+            :tooltip="t('editor.extensions.Heading.tooltip')"
+            :disabled='isCodeViewMode'
+            icon='heading'
+          />
+        </span>
     <template #dropdown>
-      <el-dropdown-menu slot="dropdown" class="el-tiptap-dropdown-menu">
+      <el-dropdown-menu class="el-tiptap-dropdown-menu">
         <el-dropdown-item
-          v-for="level in [0, ...levels]"
-          :key="level"
-          :command="level"
+          v-for='level in [0, ...levels]'
+          :key='level'
+          :command='level'
         >
           <div
             :class="[
               {
-                'el-tiptap-dropdown-menu__item--active':
+                'el-tiptap-dropdown-menu__item&#45;&#45;active':
                   level > 0
                     ? editor.isActive('heading', {
                         level,
@@ -32,14 +32,14 @@
               'el-tiptap-dropdown-menu__item',
             ]"
           >
-            <template v-if="level > 0">
-              <component :is="'h' + level" data-item-type="heading">
+            <template v-if='level > 0'>
+              <component :is="'h' + level" data-item-type='heading'>
                 {{ t('editor.extensions.Heading.buttons.heading') }} {{ level }}
               </component>
             </template>
             <span v-else>{{
-              t('editor.extensions.Heading.buttons.paragraph')
-            }}</span>
+                t('editor.extensions.Heading.buttons.paragraph')
+              }}</span>
           </div>
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -47,9 +47,9 @@
   </el-dropdown>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { defineComponent, inject } from 'vue';
-import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
+import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus';
 import type { Level } from '@tiptap/extension-heading';
 import { Editor } from '@tiptap/core';
 import CommandButton from './CommandButton.vue';

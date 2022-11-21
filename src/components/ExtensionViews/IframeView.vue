@@ -1,6 +1,6 @@
 <template>
   <node-view-wrapper as="div" class="apex-video">
-    <video controls style='width:100%;' >
+    <video controls>
       <source :src="node!.attrs.src">
     </video>
 
