@@ -43,8 +43,9 @@ jobs:
           cat package.json | jq --arg tag ${GIT_TAG}  'setpath(["version"];$tag)' > "package.json.bak"
           mv package.json.bak package.json
 
-          rm -rf !(.git|lib|package.json|LICENSE)
-          git add .
+          rm -rf !(.git|lib|package.json|LICENSE|*.sh)
+          git add lib
+          git add package.json
           git commit -m "${GIT_COMMIT_MESSAGE}"
           git tag -a ${GIT_TAG} -m "${GIT_COMMIT_MESSAGE}"
           git push --tags
