@@ -5,8 +5,6 @@
   "author": "leecason",
   "scripts": {
     "dev": "vite",
-    "demo:preview": "vite preview",
-    "build:demo": "VITE_BUILD_TARGET=demo vite build",
     "build:lib": "vite build",
     "lint": "eslint --ext .ts src",
     "lint:fix": "yarn lint --fix",
