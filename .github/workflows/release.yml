@@ -58,9 +58,7 @@ jobs:
           rm -rf tsconfig.json
           rm -rf vite.config.ts
           rm -rf yarn.lock
-
-          git add lib
-          git add package.json
+          git add .
           git commit -m "${GIT_COMMIT_MESSAGE}"
           git tag -a ${GIT_TAG} -m "${GIT_COMMIT_MESSAGE}"
           git push --tags
