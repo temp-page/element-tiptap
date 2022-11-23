@@ -36,7 +36,7 @@
 
   <el-dialog
     v-model="imageUploadDialogVisible"
-    :title="'上传视频'"
+    :title="'上传视频 支持mp4,m4v,webm,ogv,wav,gltf'"
     :append-to-body="true"
   >
     <el-upload

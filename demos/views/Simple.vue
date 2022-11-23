@@ -73,6 +73,6 @@ const extensions = [
 ];
 
 const content = ref(
-  ''
+  '<p></p><p></p>'
 );
 </script>

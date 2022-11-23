@@ -1,10 +1,9 @@
 <template>
-  <node-view-wrapper as="div" class="apex-video">
-    <video controls>
-      <source :src="node!.attrs.src">
-    </video>
-
-  </node-view-wrapper>
+    <node-view-wrapper as="div" class="iframe apex-video">
+      <video controls loop muted>
+        <source :src="node!.attrs.src" type="video/mp4">
+      </video>
+    </node-view-wrapper>
 </template>
 
 <script lang="ts">
