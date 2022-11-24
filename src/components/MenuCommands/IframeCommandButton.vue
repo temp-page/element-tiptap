@@ -99,7 +99,7 @@ export default defineComponent({
   computed: {
     imageNodeOptions() {
       return this.editor.extensionManager.extensions.find(
-        (e) => e.name === 'iframe'
+        (e) => e.name === 'video'
       )!.options;
     },
   },

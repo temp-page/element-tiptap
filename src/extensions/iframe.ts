@@ -12,11 +12,13 @@ declare module '@tiptap/core' {
 }
 
 const Iframe = Node.create({
-  name: 'iframe',
+  name: 'video',
 
   // schema
   group: 'block',
-  selectable: false,
+  selectable: true, // so we can select the video
+  draggable: true, // so we can drag the video
+  atom: true,
 
   addAttributes() {
     return {
@@ -34,7 +36,7 @@ const Iframe = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'video',
+        tag: 'video[src]',
       },
     ];
   },
@@ -42,10 +44,7 @@ const Iframe = Node.create({
   renderHTML({ HTMLAttributes }) {
     return [
       'video',
-      mergeAttributes(HTMLAttributes, {
-        frameborder: 0,
-        allowfullscreen: 'true',
-      }),
+      mergeAttributes(HTMLAttributes),
     ];
   },
 
