@@ -9,6 +9,11 @@ const Link = TiptapLink.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      HTMLAttributes: {
+        target: '_blank',
+        rel: 'noopener noreferrer nofollow',
+        class: 'apex-blog-editor-link'
+      },
       button({ editor }: { editor: Editor }) {
         return {
           component: AddLinkCommandButton,

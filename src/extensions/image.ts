@@ -23,35 +23,6 @@ const Image = TiptapImage.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
-      display: {
-        default: DEFAULT_IMAGE_DISPLAY,
-        parseHTML: (element) => {
-          const { cssFloat, display } = element.style;
-          let dp =
-            element.getAttribute('data-display') ||
-            element.getAttribute('display');
-          if (dp) {
-            dp = /(inline|block|left|right)/.test(dp)
-              ? dp
-              : ImageDisplay.INLINE;
-          } else if (cssFloat === 'left' && !display) {
-            dp = ImageDisplay.FLOAT_LEFT;
-          } else if (cssFloat === 'right' && !display) {
-            dp = ImageDisplay.FLOAT_RIGHT;
-          } else if (!cssFloat && display === 'block') {
-            dp = ImageDisplay.BREAK_TEXT;
-          } else {
-            dp = ImageDisplay.INLINE;
-          }
-
-          return dp;
-        },
-        renderHTML: (attributes) => {
-          return {
-            'data-display': attributes.display,
-          };
-        },
-      },
     };
   },
 
@@ -61,6 +32,9 @@ const Image = TiptapImage.extend({
       inline: true,
       uploadRequest: null,
       urlPattern: DEFAULT_IMAGE_URL_REGEX,
+      HTMLAttributes:{
+        class:"apex-blog-editor-img"
+      },
       button({ editor }: { editor: Editor }) {
         return {
           component: InsertImageCommandButton,

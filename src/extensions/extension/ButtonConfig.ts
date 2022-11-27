@@ -69,6 +69,19 @@ export const TiptapBtn = Mark.create<BtnOptions>({
       },
     };
   },
+  parseHTML() {
+    return [
+      {
+        tag: 'a',
+        getAttrs: element => {
+          // Check if the element has an attribute
+          element.hasAttribute('class')
+          return element.classList.contains('apex-blog-editor-btn')
+        },
+        contentElement: 'button'
+      }
+    ];
+  },
 
   renderHTML({ HTMLAttributes }) {
     return [
