@@ -1,4 +1,4 @@
-import { Node, mergeAttributes } from '@tiptap/core';
+import { mergeAttributes, Node } from '@tiptap/core';
 import { Editor, VueNodeViewRenderer } from '@tiptap/vue-3';
 import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
 import IframeView from '@/components/ExtensionViews/IframeView.vue';
@@ -44,7 +44,7 @@ const Iframe = Node.create({
   renderHTML({ HTMLAttributes }) {
     return [
       'video',
-      mergeAttributes(HTMLAttributes),
+      mergeAttributes(HTMLAttributes, { class: 'apex-video', controls: true }),
     ];
   },
 
@@ -72,10 +72,6 @@ const Iframe = Node.create({
         };
       },
     };
-  },
-
-  addNodeView() {
-    return VueNodeViewRenderer(IframeView);
   },
 });
 

@@ -1,6 +1,6 @@
 <template>
     <node-view-wrapper as="div" class="iframe apex-video">
-      <video controls loop muted :src="node!.attrs.src" class="iframe__embed"></video>
+      <video :src="node!.attrs.src" class="iframe__embed"></video>
     </node-view-wrapper>
 </template>
 

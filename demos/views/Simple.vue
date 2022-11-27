@@ -4,7 +4,15 @@
       :extensions='extensions'
       v-model:content='content'
       placeholder='Write something ...'
+      @onUpdate="onUpdate"
     />
+
+    <div class="section">
+      <h2 class="section__title">HTML</h2>
+      <pre><code>{{ output.html }}</code></pre>
+    </div>
+
+
   </div>
 </template>
 
@@ -64,7 +72,12 @@ const extensions = [
   FormatClear,
   History,
 ];
-
+const output = ref({
+  html: 'Update content to see changes',
+});
+const onUpdate = (output11, editor) => {
+  output.value.html = editor.getHTML();
+};
 const content = ref(
   '<p></p><p></p>'
 );
