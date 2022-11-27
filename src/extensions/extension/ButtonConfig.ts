@@ -36,7 +36,7 @@ declare module '@tiptap/core' {
 export const TiptapBtn = Mark.create<BtnOptions>({
   name: 'btn',
 
-  priority: 999,
+  priority: 1000,
 
   keepOnSplit: false,
 
