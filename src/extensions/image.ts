@@ -1,23 +1,18 @@
-import { Editor, mergeAttributes } from '@tiptap/core';
-import { VueNodeViewRenderer } from '@tiptap/vue-3';
+import { Editor } from '@tiptap/core';
 import TiptapImage from '@tiptap/extension-image';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
-import ImageView from '@/components/ExtensionViews/ImageView.vue';
-import { ImageDisplay } from '@/utils/image';
 import {
-  DEFAULT_IMAGE_WIDTH,
-  DEFAULT_IMAGE_DISPLAY,
   DEFAULT_IMAGE_URL_REGEX,
 } from '@/constants';
 
 const Image = TiptapImage.extend({
   // https://github.com/ueberdosis/tiptap/issues/1206
   inline() {
-    return true;
+    return false;
   },
 
   group() {
-    return 'inline';
+    return 'block';
   },
 
   addAttributes() {
