@@ -11,7 +11,6 @@ const Link = TiptapLink.extend({
       ...this.parent?.(),
       HTMLAttributes: {
         target: '_blank',
-        rel: 'noopener noreferrer nofollow',
         class: 'apex-blog-editor-link'
       },
       button({ editor }: { editor: Editor }) {

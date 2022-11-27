@@ -1,5 +1,5 @@
-import { Mark } from '@tiptap/core';
-import { Plugin } from 'prosemirror-state';
+import { getAttributes, Mark } from '@tiptap/core';
+import { Plugin, PluginKey } from 'prosemirror-state';
 export interface BtnOptions {
   /**
    * An array of custom protocols to be registered with linkifyjs.
@@ -36,7 +36,7 @@ declare module '@tiptap/core' {
 export const TiptapBtn = Mark.create<BtnOptions>({
   name: 'btn',
 
-  priority: 1000,
+  priority: 999,
 
   keepOnSplit: false,
 
@@ -75,8 +75,8 @@ export const TiptapBtn = Mark.create<BtnOptions>({
         tag: 'a',
         getAttrs: element => {
           // Check if the element has an attribute
-          element.hasAttribute('class')
-          return element.classList.contains('apex-blog-editor-btn')
+          element.hasAttribute('class');
+          return element.classList.contains('apex-blog-editor-btn');
         },
         contentElement: 'button'
       }
@@ -117,6 +117,14 @@ export const TiptapBtn = Mark.create<BtnOptions>({
 
   addProseMirrorPlugins() {
     const plugins: Plugin[] = [];
+    plugins.push(new Plugin({
+      key: new PluginKey('handleClickBtn'),
+      props: {
+        handleClick: (view, pos, event) => {
+          return false;
+        },
+      },
+    }));
     return plugins;
   },
 });
