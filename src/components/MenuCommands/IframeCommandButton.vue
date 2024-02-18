@@ -9,7 +9,7 @@
     <div class="el-tiptap-popper__menu">
       <div class="el-tiptap-popper__menu__item" @click="openInsertVideoControl">
         <span>{{
-            "插入一个视频链接"
+            "Insert a video link"
           }}</span>
       </div>
       <div
@@ -17,7 +17,7 @@
         @click="imageUploadDialogVisible = true"
       >
         <span>{{
-            "上传一个视频文件"
+            "Upload a video file"
           }}</span>
       </div>
     </div>
@@ -36,7 +36,7 @@
 
   <el-dialog
     v-model="imageUploadDialogVisible"
-    :title="'上传视频 支持mp4,m4v,webm,ogv,wav,gltf'"
+    :title="'Upload video Supported formats: mp4, m4v, webm, ogv, wav, gltf'"
     :append-to-body="true"
   >
     <el-upload
@@ -51,7 +51,7 @@
         <i class="fa fa-upload" />
       </div>
       <div class="el-tiptap-upload__text">
-        {{ "选择一个视频文件或将其拖到此处" }}
+        {{ "Select a video file or drag it here" }}
       </div>
     </el-upload>
   </el-dialog>

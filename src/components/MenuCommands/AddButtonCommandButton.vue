@@ -5,24 +5,24 @@
       :readonly="isCodeViewMode"
       :command="openAddLinkDialog"
       :enable-tooltip="enableTooltip"
-      :tooltip="'添加 按钮'"
+      :tooltip="'add a button.'"
       :icon="'btn'"
     />
 
     <el-dialog
       v-model="addLinkDialogVisible"
-      :title="'添加按钮'"
+      :title="'Add Button.'"
       :append-to-body="true"
       width="400px"
       custom-class="el-tiptap-edit-link-dialog"
     >
       <el-form :model="btnAttrs" label-position="right" size="small">
-        <el-form-item :label="'跳转链接'" prop="href">
+        <el-form-item :label="'Jump link'" prop="href">
           <el-input v-model="btnAttrs.href" autocomplete="off" />
         </el-form-item>
         <el-form-item prop="openInNewTab">
           <el-checkbox v-model="btnAttrs.openInNewTab">
-            {{ "是否新页面打开" }}
+            {{ "Open in a new page?" }}
           </el-checkbox>
         </el-form-item>
       </el-form>
