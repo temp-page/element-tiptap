@@ -11,7 +11,8 @@ export { default as OrderedList } from './ordered-list';
 export { default as Image } from './image';
 export { default as TaskList } from './task-list';
 export { default as Table } from './table';
-export { default as Iframe } from './iframe';
+export { default as IframeVideo } from './iframe-video';
+export { default as IframeLink } from './iframe-link';
 
 // marks
 export { default as Bold } from './bold';

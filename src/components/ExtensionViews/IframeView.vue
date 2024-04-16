@@ -1,7 +1,7 @@
 <template>
-    <node-view-wrapper as="div" class="iframe apex-video">
-      <video :src="node!.attrs.src" class="iframe__embed"></video>
-    </node-view-wrapper>
+  <node-view-wrapper as="div" class="iframe">
+    <iframe class="iframe__embed" :src="node!.attrs.src"></iframe>
+  </node-view-wrapper>
 </template>
 
 <script lang="ts">

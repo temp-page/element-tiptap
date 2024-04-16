@@ -1,17 +1,16 @@
 import { mergeAttributes, Node } from '@tiptap/core';
-import { Editor, VueNodeViewRenderer } from '@tiptap/vue-3';
-import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
-import IframeView from '@/components/ExtensionViews/IframeView.vue';
+import { Editor } from '@tiptap/vue-3';
+import IframeVideoCommandButton from '@/components/MenuCommands/IframeVideoCommandButton.vue';
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     iframe: {
-      setIframe: (options: { src: string }) => ReturnType;
+      setIframeVideo: (options: { src: string }) => ReturnType;
     };
   }
 }
 
-const Iframe = Node.create({
+const IframeVideo = Node.create({
   name: 'video',
 
   // schema
@@ -50,7 +49,7 @@ const Iframe = Node.create({
 
   addCommands() {
     return {
-      setIframe:
+      setIframeVideo:
         (options) =>
           ({ commands }) => {
             return commands.insertContent({
@@ -65,7 +64,7 @@ const Iframe = Node.create({
     return {
       button({ editor }: { editor: Editor }) {
         return {
-          component: IframeCommandButton,
+          component: IframeVideoCommandButton,
           componentProps: {
             editor,
           },
@@ -75,4 +74,4 @@ const Iframe = Node.create({
   },
 });
 
-export default Iframe;
+export default IframeVideo;
